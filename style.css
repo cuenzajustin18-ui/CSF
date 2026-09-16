@@ -1,1222 +1,597 @@
 /* =========================================
+   CSF CHURCH - 20TH ANNIVERSARY CSS (FULL)
+   Theme: Burgundy, Beige, Cream, Gold
+========================================= */
 
-   COLOR PALETTE & CSS VARIABLES
-
-   ========================================= */
-
-   :root {
-
-    --burgundy: #800020;
-
-    --dark-burgundy: #5A0018;
-
-    --beige: #F3E6D0;
-
-    --cream: #FFF9F0;
-
-    --gold: #C9A227;
-
-    --white: #FFFFFF;
-
-    --dark-text: #2B2020;
-
-   
-
+:root {
+    --clr-burgundy: #7A1528;
+    --clr-burgundy-dark: #4A0C16;
+    --clr-beige: #F4EBD9;
+    --clr-cream: #FBF8F1;
+    --clr-gold: #C5A059;
+    --clr-gold-light: #E8D099;
+    --clr-text: #2C2C2C;
+    --clr-white: #FFFFFF;
+    
     --font-heading: 'Playfair Display', serif;
-
     --font-body: 'Lato', sans-serif;
-
 }
-
-
-
-/* =========================================
-
-   RESET & GLOBAL STYLES
-
-   ========================================= */
 
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
-    scroll-behavior: smooth;
-
 }
 
-
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-
     font-family: var(--font-body);
-
-    color: var(--dark-text);
-
+    background-color: var(--clr-cream);
+    color: var(--clr-text);
     line-height: 1.6;
-
-    background-color: var(--cream);
-
+    overflow-x: hidden;
 }
-
-
 
 h1, h2, h3, h4 {
-
     font-family: var(--font-heading);
-
     font-weight: 700;
-
-    margin-bottom: 15px;
-
 }
 
-
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 .container {
-
-    max-width: 1200px;
-
+    max-width: 1100px;
     margin: 0 auto;
-
     padding: 80px 20px;
-
 }
-
-
 
 .center-text {
-
     text-align: center;
-
 }
-
-
 
 .section-title {
-
     font-size: 2.5rem;
-
-    color: var(--burgundy);
-
-    margin-bottom: 20px;
-
+    color: var(--clr-burgundy);
+    margin-bottom: 15px;
     text-align: center;
-
 }
-
-
 
 .section-subtitle {
-
     text-align: center;
-
     max-width: 700px;
-
-    margin: 0 auto 40px auto;
-
+    margin: 0 auto 50px auto;
     font-size: 1.1rem;
-
-    color: #554444;
-
+    color: #555;
 }
 
-
-
-/* Background Utility Classes */
-
-.section-bg-cream { background-color: var(--cream); }
-
-.section-bg-beige { background-color: var(--beige); }
-
-.section-bg-burgundy { background-color: var(--burgundy); color: var(--white); }
-
-
-
-/* =========================================
-
-   NAVIGATION (RESPONSIVE & GLASS EFFECT)
-
-   ========================================= */
-
-.navbar {
-
-    background-color: var(--white);
-
-    position: fixed;
-
-    width: 100%;
-
-    top: 0;
-
-    z-index: 1000;
-
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-
+/* --- BACKGROUND COLORS --- */
+.section-bg-cream { background-color: var(--clr-cream); }
+.section-bg-beige { background-color: var(--clr-beige); }
+.section-bg-burgundy { 
+    background-color: var(--clr-burgundy-dark); 
+    color: var(--clr-white); 
+}
+.section-bg-burgundy .section-title,
+.section-bg-burgundy h2 {
+    color: var(--clr-gold-light);
 }
 
-
-
-.navbar.scrolled {
-
-    background-color: rgba(255, 255, 255, 0.95);
-
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-
-    backdrop-filter: blur(10px);
-
-    padding: 5px 0;
-
-}
-
-
-
-.nav-container {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 15px 5%;
-
-    max-width: 1200px;
-
-    margin: auto;
-
-}
-
-
-
-.logo-wrapper {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-}
-
-
-
-.nav-logo-img {
-
-    height: 40px;
-
-    width: 40px;
-
-    object-fit: contain;
-
-    border-radius: 50%;
-
-}
-
-
-
-.logo-text {
-
-    font-family: var(--font-heading);
-
-    font-size: 1.4rem;
-
-    font-weight: 700;
-
-    color: var(--burgundy);
-
-}
-
-
-
-.nav-links {
-
-    list-style: none;
-
-    display: flex;
-
-    gap: 25px;
-
-}
-
-
-
-.nav-links a {
-
-    text-decoration: none;
-
-    color: var(--dark-text);
-
-    font-weight: 700;
-
-    font-size: 0.95rem;
-
-    transition: color 0.3s;
-
-}
-
-
-
-.nav-links a:hover {
-
-    color: var(--gold);
-
-}
-
-
-
-.hamburger {
-
-    display: none;
-
-    cursor: pointer;
-
-    flex-direction: column;
-
-    gap: 5px;
-
-}
-
-
-
-.hamburger span {
-
-    width: 25px;
-
-    height: 3px;
-
-    background-color: var(--burgundy);
-
-    transition: 0.3s;
-
-}
-
-
-
-/* =========================================
-
-   1. HERO SECTION
-
-   ========================================= */
-
-.hero {
-
-    height: 100vh;
-
-    background: url('assets/images/hero-bg.jpg') no-repeat center center/cover;
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    color: var(--white);
-
-    padding: 0 20px;
-
-}
-
-
-
-/* Fallback background kung sakaling wala pang laman ang assets/images/hero-bg.jpg */
-
-.hero {
-
-    background-color: var(--dark-burgundy);
-
-}
-
-
-
-.hero-overlay {
-
-    position: absolute;
-
-    top: 0; left: 0; right: 0; bottom: 0;
-
-    background-color: rgba(90, 0, 24, 0.78); /* Burgundy overlay */
-
-}
-
-
-
-.hero-content {
-
-    position: relative;
-
-    z-index: 1;
-
-    max-width: 850px;
-
-}
-
-
-
-.hero h3 {
-
-    color: var(--gold);
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    font-size: 1.1rem;
-
-    margin-bottom: 10px;
-
-}
-
-
-
-.hero h1 {
-
-    font-size: 3.8rem;
-
-    margin-bottom: 20px;
-
-}
-
-
-
-.hero-verse {
-
-    font-style: italic;
-
-    font-size: 1.25rem;
-
-    margin-bottom: 35px;
-
-    opacity: 0.95;
-
-}
-
-
-
-/* Countdown */
-
-.countdown-container {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    margin-bottom: 35px;
-
-}
-
-
-
-.countdown-box {
-
-    background-color: rgba(255, 255, 255, 0.12);
-
-    border: 1px solid var(--gold);
-
-    padding: 12px 18px;
-
-    border-radius: 8px;
-
-    min-width: 85px;
-
-    backdrop-filter: blur(5px);
-
-}
-
-
-
-.countdown-box span {
-
-    font-size: 1.8rem;
-
-    font-weight: 700;
-
-    font-family: var(--font-heading);
-
-    color: var(--gold);
-
-    display: block;
-
-}
-
-
-
-.countdown-box p {
-
-    font-size: 0.85rem;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-
-}
-
-
-
-/* Buttons */
-
-.hero-buttons {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-
-}
-
-
-
+/* --- BUTTONS --- */
 .btn {
-
-    padding: 14px 30px;
-
-    text-decoration: none;
-
-    font-weight: 700;
-
-    border-radius: 5px;
-
-    transition: all 0.3s ease;
-
     display: inline-block;
-
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
     cursor: pointer;
-
 }
-
-
 
 .btn-primary {
-
-    background-color: var(--gold);
-
-    color: var(--dark-burgundy);
-
+    background-color: var(--clr-gold);
+    color: var(--clr-burgundy-dark);
+    border: 2px solid var(--clr-gold);
 }
 
 .btn-primary:hover {
-
-    background-color: #dfb532;
-
-    transform: translateY(-2px);
-
+    background-color: transparent;
+    color: var(--clr-gold);
 }
 
-
-
 .btn-secondary {
-
-    background-color: var(--white);
-
-    color: var(--burgundy);
-
+    background-color: transparent;
+    color: var(--clr-white);
+    border: 2px solid var(--clr-white);
 }
 
 .btn-secondary:hover {
-
-    background-color: var(--beige);
-
-    transform: translateY(-2px);
-
+    background-color: var(--clr-white);
+    color: var(--clr-burgundy-dark);
 }
 
-
-
 .btn-primary-outline {
-
-    border: 2px solid var(--gold);
-
-    color: var(--gold);
-
-    background: transparent;
-
+    background-color: transparent;
+    color: var(--clr-gold);
+    border: 2px solid var(--clr-gold);
 }
 
 .btn-primary-outline:hover {
-
-    background-color: var(--gold);
-
-    color: var(--dark-burgundy);
-
+    background-color: var(--clr-gold);
+    color: var(--clr-burgundy-dark);
 }
 
+/* --- NAVBAR --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(74, 12, 22, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+}
 
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-/* =========================================
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-   2. ABOUT SECTION
+.nav-logo-img {
+    height: 40px;
+    border-radius: 50%;
+}
 
-   ========================================= */
+.logo-text {
+    font-family: var(--font-heading);
+    color: var(--clr-gold-light);
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
 
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: var(--clr-white);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover { color: var(--clr-gold); }
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--clr-gold-light);
+    border-radius: 3px;
+}
+
+/* --- 1. HERO SECTION --- */
+.hero {
+    height: 100vh;
+    min-height: 700px;
+    background: linear-gradient(rgba(74, 12, 22, 0.8), rgba(74, 12, 22, 0.8)), url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    color: var(--clr-white);
+    max-width: 800px;
+    margin-top: 50px;
+}
+
+.hero-content h3, 
+.hero-content h1, 
+.hero-verse, 
+.countdown-container, 
+.hero-buttons {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-content h3 { color: var(--clr-gold); animation-delay: 0.2s; }
+.hero-content h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; animation-delay: 0.4s; }
+.hero-verse { font-size: 1.2rem; font-style: italic; margin-bottom: 40px; animation-delay: 0.6s; }
+.countdown-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; animation-delay: 0.8s; }
+.hero-buttons { display: flex; justify-content: center; gap: 15px; animation-delay: 1s; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.countdown-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    border-radius: 8px;
+    padding: 20px 15px;
+    width: 100px;
+}
+
+.countdown-box span {
+    display: block;
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    color: var(--clr-gold-light);
+    line-height: 1;
+}
+
+/* --- 2. ABOUT THE CHURCH --- */
 .about-grid {
-
     display: grid;
-
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
     gap: 30px;
-
     margin-top: 40px;
-
 }
-
-
 
 .about-card {
-
-    background-color: var(--white);
-
-    padding: 35px 30px;
-
+    background-color: var(--clr-white);
+    padding: 40px 30px;
     border-radius: 8px;
-
-    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
-
     text-align: center;
-
-    border-bottom: 4px solid var(--gold);
-
-    transition: transform 0.3s ease;
-
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-bottom: 4px solid var(--clr-gold);
+    transition: transform 0.3s;
 }
 
+.about-card:hover { transform: translateY(-10px); }
+.about-card h3 { color: var(--clr-burgundy); margin-bottom: 15px; }
 
-
-.about-card:hover {
-
-    transform: translateY(-5px);
-
-}
-
-
-
-.about-card h3 {
-
-    color: var(--burgundy);
-
-    margin-bottom: 15px;
-
-}
-
-
-
-/* =========================================
-
-   3. 20TH ANNIVERSARY CENTERPIECE
-
-   ========================================= */
-
-.anniversary-centerpiece {
-
-    padding: 90px 20px;
-
-}
-
+/* --- 3. ANNIVERSARY CENTERPIECE --- */
 .big-20 {
-
-    font-family: var(--font-heading);
-
-    font-size: 9rem;
-
-    color: var(--gold);
-
+    font-size: 8rem;
     line-height: 1;
-
-    margin-bottom: -10px;
-
+    color: var(--clr-gold);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 }
 
 .gold-divider {
-
-    height: 3px;
-
-    width: 120px;
-
-    background-color: var(--gold);
-
-    margin: 25px auto;
-
+    height: 2px;
+    width: 100px;
+    background-color: var(--clr-gold);
+    margin: 20px auto;
 }
 
-
-
-/* =========================================
-
-   4 & 8. TIMELINE (PROGRAM & MILESTONES)
-
-   ========================================= */
-
+/* --- 4 & 8. PROGRAM & MILESTONES TIMELINE --- */
 .program-summary-box {
-
-    background-color: var(--white);
-
-    padding: 20px 30px;
-
+    background-color: var(--clr-white);
+    padding: 20px;
     border-radius: 8px;
-
-    max-width: 800px;
-
+    text-align: center;
+    max-width: 600px;
     margin: 0 auto 40px auto;
-
-    border-left: 5px solid var(--gold);
-
-    box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-
+    border-left: 5px solid var(--clr-burgundy);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
-
-
 
 .timeline {
-
-    max-width: 800px;
-
-    margin: 0 auto;
-
     position: relative;
-
-    padding-left: 30px;
-
-    border-left: 3px solid var(--burgundy);
-
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--clr-gold);
+    top: 0; 
+    bottom: 0; 
+    left: 20px;
+    transform: translateX(-50%);
+}
 
 .timeline-item {
-
-    margin-bottom: 35px;
-
+    padding: 20px 0 20px 50px;
     position: relative;
-
+    text-align: left;
 }
 
-
-
-.timeline-item::before {
-
+.timeline-item::after {
     content: '';
-
     position: absolute;
-
-    left: -39px;
-
-    top: 0;
-
-    width: 15px;
-
-    height: 15px;
-
-    background-color: var(--gold);
-
+    width: 16px; 
+    height: 16px;
+    left: 20px;
+    top: 24px;
+    transform: translateX(-50%);
+    background-color: var(--clr-burgundy);
+    border: 3px solid var(--clr-gold);
     border-radius: 50%;
-
-    border: 3px solid var(--white);
-
-    box-shadow: 0 0 0 2px var(--burgundy);
-
+    z-index: 1;
 }
 
-
-
-.time {
-
-    font-weight: 700;
-
-    color: var(--burgundy);
-
+.timeline .time { 
+    font-weight: 700; 
+    color: var(--clr-burgundy); 
     margin-bottom: 5px;
-
-    font-size: 0.95rem;
-
 }
 
-
-
-.event-details {
-
-    background: var(--white);
-
-    padding: 20px;
-
-    border-radius: 6px;
-
-    box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-
-}
-
-
-
-.event-details h4 {
-
+.timeline h4 {
+    font-size: 1.3rem;
     margin-bottom: 5px;
-
-    color: var(--dark-text);
-
 }
 
-
-
-/* =========================================
-
-   5. BIBLE VERSE SECTION
-
-   ========================================= */
-
+/* --- 5. BIBLE VERSE SECTION --- */
 .verse-section {
+    background: linear-gradient(rgba(74, 12, 22, 0.85), rgba(74, 12, 22, 0.85)), url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1920&q=80') center/cover fixed no-repeat;
+    color: var(--clr-white);
+    padding: 100px 20px;
+    text-align: center;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+}
 
-    background-image: linear-gradient(rgba(243, 230, 208, 0.92), rgba(243, 230, 208, 0.92)), url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1920&q=80');
-
-    background-size: cover;
-
-    background-position: center;
-
-    background-attachment: fixed;
-
-    padding: 110px 20px;
-
+.verse-section .container {
+    max-width: 900px;
+    padding: 0 20px;
 }
 
 .verse-section h2 {
-
-    font-size: 2.6rem;
-
-    color: var(--burgundy);
-
+    font-size: 2.5rem;
     font-style: italic;
-
-    max-width: 900px;
-
-    margin: 0 auto 15px auto;
-
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: var(--clr-gold-light);
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-.verse-ref {
-
+.verse-section .verse-ref {
+    font-size: 1.1rem;
     font-weight: 700;
-
-    color: var(--dark-burgundy);
-
-    letter-spacing: 1px;
-
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--clr-white);
 }
 
-
-
-/* =========================================
-
-   6. PHOTO GALLERY & LIGHTBOX
-
-   ========================================= */
-
+/* --- 6. GALLERY --- */
 .gallery-grid {
-
     display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-
-    gap: 20px;
-
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
 }
 
 .gallery-img {
-
-    width: 100%;
-
-    height: 260px;
-
+    width: 100%; 
+    height: 250px;
     object-fit: cover;
-
-    border-radius: 8px;
-
+    border-radius: 8px; 
     cursor: pointer;
-
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-
-    transition: transform 0.3s ease, filter 0.3s ease;
-
+    transition: transform 0.4s;
 }
 
-.gallery-img:hover {
+.gallery-img:hover { transform: scale(1.03); }
 
-    transform: scale(1.03);
-
-    filter: brightness(1.05);
-
-}
-
-
-
-/* Lightbox Styles */
-
+/* Lightbox Modal */
 .lightbox {
-
     display: none;
-
-    position: fixed;
-
-    z-index: 2000;
-
-    padding-top: 60px;
-
-    left: 0; top: 0;
-
-    width: 100%; height: 100%;
-
-    background-color: rgba(0, 0, 0, 0.9);
-
+    position: fixed; 
+    z-index: 9999;
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    align-items: center; 
+    justify-content: center;
 }
 
 .lightbox-content {
-
-    margin: auto;
-
-    display: block;
-
-    max-width: 85%;
-
-    max-height: 80vh;
-
-    border-radius: 4px;
-
-    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-
+    max-width: 80%; 
+    max-height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 .close-lightbox {
-
-    position: absolute;
-
-    top: 25px;
-
+    position: absolute; 
+    top: 30px; 
     right: 40px;
-
-    color: #f1f1f1;
-
-    font-size: 45px;
-
+    color: white; 
+    font-size: 40px;
+    cursor: pointer; 
     font-weight: bold;
-
-    cursor: pointer;
-
-    transition: color 0.2s;
-
 }
 
-.close-lightbox:hover {
-
-    color: var(--gold);
-
+/* --- 7. PASTOR SECTION --- */
+.pastor-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 40px; 
+    align-items: center; 
 }
 
-
-
-/* =========================================
-
-   7. PASTOR MESSAGE
-
-   ========================================= */
-
-.pastor-grid {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 50px;
-
+.pastor-photo, .pastor-text { 
+    flex: 1; 
+    min-width: 300px; 
 }
 
-.pastor-photo img {
-
-    width: 100%;
-
-    max-width: 350px;
-
-    height: 420px;
-
-    object-fit: cover;
-
-    border-radius: 8px;
-
-    box-shadow: -15px 15px 0px var(--gold);
-
+.pastor-photo img { 
+    width: 100%; 
+    border-radius: 8px; 
+    border: 5px solid var(--clr-white); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.pastor-text { flex: 1; }
-
-.pastor-text h3 {
-
-    color: var(--burgundy);
-
-    margin-bottom: 20px;
-
+.pastor-text h3 { 
+    color: var(--clr-gold); 
+    margin-bottom: 20px; 
 }
 
-.pastor-text p {
-
-    font-style: italic;
-
-    font-size: 1.15rem;
-
-    line-height: 1.8;
-
+.pastor-text p { 
+    font-style: italic; 
+    border-left: 4px solid var(--clr-burgundy); 
+    padding-left: 20px; 
 }
 
+/* --- 9. CALL TO ACTION --- */
+.cta {
+    padding: 80px 20px;
+}
 
-
-/* =========================================
-
-   9 & 10. CTA & CONTACT
-
-   ========================================= */
-
+/* --- 10. CONTACT SECTION (AYOS AT PANTAY NA ITO) --- */
 .contact-grid {
-
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 50px;
-
     align-items: center;
+}
 
+.contact-info {
+    text-align: left;
 }
 
 .contact-info p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--clr-text);
+}
 
-    margin-bottom: 12px;
-
-    font-size: 1.05rem;
-
+.contact-map {
+    width: 100%;
 }
 
 .map-placeholder {
-
+    height: 380px;
     width: 100%;
-
-    height: 320px;
-
-    background-color: #e5d8c3;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
     border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.1);
+}
 
-    color: #775533;
+.map-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
 
-    font-weight: 700;
+/* --- 11. FOOTER --- */
+footer { 
+    background-color: var(--clr-burgundy-dark); 
+    color: var(--clr-white); 
+    padding: 60px 20px 20px 20px; 
+}
 
+footer h2 { color: var(--clr-gold-light); }
+
+.social-icons { 
+    margin: 20px 0; 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+}
+
+.social-icons a { 
+    width: 40px; 
+    height: 40px; 
+    line-height: 40px; 
+    background-color: rgba(255,255,255,0.1); 
+    border-radius: 50%; 
     text-align: center;
-
-    padding: 20px;
-
-    border: 2px dashed var(--gold);
-
 }
 
-
-
-/* =========================================
-
-   11. FOOTER
-
-   ========================================= */
-
-footer {
-
-    background-color: var(--dark-burgundy);
-
-    color: var(--white);
-
-    padding: 50px 20px;
-
+.social-icons a:hover { 
+    background-color: var(--clr-gold); 
+    color: var(--clr-burgundy-dark); 
 }
 
-footer h2 { color: var(--gold); }
-
-footer h3 { font-size: 1.1rem; opacity: 0.9; margin-bottom: 10px; }
-
-.social-icons {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    margin: 25px 0 15px 0;
-
+.copyright { 
+    margin-top: 30px; 
+    opacity: 0.7; 
+    border-top: 1px solid rgba(255,255,255,0.1); 
+    padding-top: 20px; 
 }
 
-.social-icons a {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 38px;
-
-    height: 38px;
-
-    background-color: rgba(255, 255, 255, 0.1);
-
-    color: var(--white);
-
-    border-radius: 50%;
-
-    text-decoration: none;
-
-    font-weight: 700;
-
-    font-size: 0.85rem;
-
-    transition: background-color 0.3s;
-
-}
-
-.social-icons a:hover {
-
-    background-color: var(--gold);
-
-    color: var(--dark-burgundy);
-
-}
-
-.copyright {
-
-    margin-top: 20px;
-
-    font-size: 0.9rem;
-
-    opacity: 0.7;
-
-}
-
-
-
-/* =========================================
-
-   SCROLL REVEAL ANIMATIONS
-
-   ========================================= */
-
-.fade-in {
-
+/* --- SCROLL ANIMATIONS --- */
+.fade-in-scroll {
     opacity: 0;
-
     transform: translateY(30px);
-
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-
 }
 
-.fade-in.appear {
-
-    opacity: 1;
-
-    transform: translateY(0);
-
+.fade-in-scroll.appear { 
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
-
-
-/* =========================================
-
-   RESPONSIVE DESIGN (MOBILE & TABLET)
-
-   ========================================= */
-
+/* --- RESPONSIVE DESIGN (TABLET & MOBILE) --- */
 @media (max-width: 900px) {
-
     .contact-grid {
-
         grid-template-columns: 1fr;
-
+        gap: 30px;
     }
-
-    .pastor-grid {
-
-        flex-direction: column;
-
-        text-align: center;
-
+    
+    .map-placeholder {
+        height: 320px;
     }
-
-    .pastor-photo img {
-
-        box-shadow: 0px 15px 0px var(--gold);
-
-        max-width: 300px;
-
-        height: 350px;
-
-    }
-
 }
-
-
 
 @media (max-width: 768px) {
-
-    .nav-links {
-
-        display: none;
-
-        flex-direction: column;
-
-        width: 100%;
-
-        background-color: var(--white);
-
-        position: absolute;
-
-        top: 70px;
-
-        left: 0;
-
-        padding: 20px 0;
-
-        text-align: center;
-
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-
-    }
-
-    .nav-links.active { display: flex; }
-
     .hamburger { display: flex; }
-
-   
-
-    .hero h1 { font-size: 2.6rem; }
-
-    .countdown-container { gap: 8px; }
-
-    .countdown-box { padding: 8px 10px; min-width: 70px; }
-
-    .countdown-box span { font-size: 1.4rem; }
-
-    .big-20 { font-size: 7rem; }
-
-} 
-
+    
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        background-color: var(--clr-burgundy-dark);
+        flex-direction: column;
+        width: 250px;
+        height: 100vh;
+        padding: 40px 20px;
+        transition: 0.4s ease-in-out;
+    }
+    
+    .nav-links.active { right: 0; box-shadow: -5px 0 10px rgba(0,0,0,0.2); }
+    
+    .hero-content h1 { font-size: 2.8rem; }
+    .countdown-container { flex-wrap: wrap; }
+    .countdown-box { width: calc(50% - 15px); }
+    .hero-buttons { flex-direction: column; }
+    
+    .verse-section {
+        background-attachment: scroll;
+        padding: 60px 20px;
+    }
+    
+    .verse-section h2 {
+        font-size: 1.8rem;
+    }
+}
