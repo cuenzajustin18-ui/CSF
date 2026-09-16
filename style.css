@@ -1,611 +1,1222 @@
 /* =========================================
+
    COLOR PALETTE & CSS VARIABLES
+
    ========================================= */
+
    :root {
+
     --burgundy: #800020;
+
     --dark-burgundy: #5A0018;
+
     --beige: #F3E6D0;
+
     --cream: #FFF9F0;
+
     --gold: #C9A227;
+
     --white: #FFFFFF;
+
     --dark-text: #2B2020;
-    
+
+   
+
     --font-heading: 'Playfair Display', serif;
+
     --font-body: 'Lato', sans-serif;
+
 }
 
+
+
 /* =========================================
+
    RESET & GLOBAL STYLES
+
    ========================================= */
+
 * {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
+
     scroll-behavior: smooth;
+
 }
+
+
 
 body {
+
     font-family: var(--font-body);
+
     color: var(--dark-text);
+
     line-height: 1.6;
+
     background-color: var(--cream);
+
 }
+
+
 
 h1, h2, h3, h4 {
+
     font-family: var(--font-heading);
+
     font-weight: 700;
+
     margin-bottom: 15px;
+
 }
+
+
 
 .container {
+
     max-width: 1200px;
+
     margin: 0 auto;
+
     padding: 80px 20px;
+
 }
+
+
 
 .center-text {
+
     text-align: center;
+
 }
+
+
 
 .section-title {
+
     font-size: 2.5rem;
+
     color: var(--burgundy);
+
     margin-bottom: 20px;
+
     text-align: center;
+
 }
+
+
 
 .section-subtitle {
+
     text-align: center;
+
     max-width: 700px;
+
     margin: 0 auto 40px auto;
+
     font-size: 1.1rem;
+
     color: #554444;
+
 }
+
+
 
 /* Background Utility Classes */
+
 .section-bg-cream { background-color: var(--cream); }
+
 .section-bg-beige { background-color: var(--beige); }
+
 .section-bg-burgundy { background-color: var(--burgundy); color: var(--white); }
 
+
+
 /* =========================================
+
    NAVIGATION (RESPONSIVE & GLASS EFFECT)
+
    ========================================= */
+
 .navbar {
+
     background-color: var(--white);
+
     position: fixed;
+
     width: 100%;
+
     top: 0;
+
     z-index: 1000;
+
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
     transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+
 }
+
+
 
 .navbar.scrolled {
+
     background-color: rgba(255, 255, 255, 0.95);
+
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+
     backdrop-filter: blur(10px);
+
     padding: 5px 0;
+
 }
+
+
 
 .nav-container {
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     padding: 15px 5%;
+
     max-width: 1200px;
+
     margin: auto;
+
 }
+
+
 
 .logo-wrapper {
+
     display: flex;
+
     align-items: center;
+
     gap: 10px;
+
 }
+
+
 
 .nav-logo-img {
+
     height: 40px;
+
     width: 40px;
+
     object-fit: contain;
+
     border-radius: 50%;
+
 }
+
+
 
 .logo-text {
+
     font-family: var(--font-heading);
+
     font-size: 1.4rem;
+
     font-weight: 700;
+
     color: var(--burgundy);
+
 }
+
+
 
 .nav-links {
+
     list-style: none;
+
     display: flex;
+
     gap: 25px;
+
 }
+
+
 
 .nav-links a {
+
     text-decoration: none;
+
     color: var(--dark-text);
+
     font-weight: 700;
+
     font-size: 0.95rem;
+
     transition: color 0.3s;
+
 }
+
+
 
 .nav-links a:hover {
+
     color: var(--gold);
+
 }
+
+
 
 .hamburger {
+
     display: none;
+
     cursor: pointer;
+
     flex-direction: column;
+
     gap: 5px;
+
 }
+
+
 
 .hamburger span {
+
     width: 25px;
+
     height: 3px;
+
     background-color: var(--burgundy);
+
     transition: 0.3s;
+
 }
 
+
+
 /* =========================================
+
    1. HERO SECTION
+
    ========================================= */
+
 .hero {
+
     height: 100vh;
+
     background: url('assets/images/hero-bg.jpg') no-repeat center center/cover;
+
     position: relative;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     text-align: center;
+
     color: var(--white);
+
     padding: 0 20px;
+
 }
+
+
 
 /* Fallback background kung sakaling wala pang laman ang assets/images/hero-bg.jpg */
+
 .hero {
+
     background-color: var(--dark-burgundy);
+
 }
+
+
 
 .hero-overlay {
+
     position: absolute;
+
     top: 0; left: 0; right: 0; bottom: 0;
+
     background-color: rgba(90, 0, 24, 0.78); /* Burgundy overlay */
+
 }
+
+
 
 .hero-content {
+
     position: relative;
+
     z-index: 1;
+
     max-width: 850px;
+
 }
+
+
 
 .hero h3 {
+
     color: var(--gold);
+
     letter-spacing: 3px;
+
     text-transform: uppercase;
+
     font-size: 1.1rem;
+
     margin-bottom: 10px;
+
 }
+
+
 
 .hero h1 {
+
     font-size: 3.8rem;
+
     margin-bottom: 20px;
+
 }
+
+
 
 .hero-verse {
+
     font-style: italic;
+
     font-size: 1.25rem;
+
     margin-bottom: 35px;
+
     opacity: 0.95;
+
 }
+
+
 
 /* Countdown */
+
 .countdown-container {
+
     display: flex;
+
     justify-content: center;
+
     gap: 15px;
+
     margin-bottom: 35px;
+
 }
+
+
 
 .countdown-box {
+
     background-color: rgba(255, 255, 255, 0.12);
+
     border: 1px solid var(--gold);
+
     padding: 12px 18px;
+
     border-radius: 8px;
+
     min-width: 85px;
+
     backdrop-filter: blur(5px);
+
 }
+
+
 
 .countdown-box span {
+
     font-size: 1.8rem;
+
     font-weight: 700;
+
     font-family: var(--font-heading);
+
     color: var(--gold);
+
     display: block;
+
 }
+
+
 
 .countdown-box p {
+
     font-size: 0.85rem;
+
     text-transform: uppercase;
+
     letter-spacing: 1px;
+
 }
+
+
 
 /* Buttons */
+
 .hero-buttons {
+
     display: flex;
+
     justify-content: center;
+
     gap: 15px;
+
     flex-wrap: wrap;
+
 }
+
+
 
 .btn {
+
     padding: 14px 30px;
+
     text-decoration: none;
+
     font-weight: 700;
+
     border-radius: 5px;
+
     transition: all 0.3s ease;
+
     display: inline-block;
+
     cursor: pointer;
+
 }
+
+
 
 .btn-primary {
+
     background-color: var(--gold);
+
     color: var(--dark-burgundy);
+
 }
-.btn-primary:hover { 
-    background-color: #dfb532; 
+
+.btn-primary:hover {
+
+    background-color: #dfb532;
+
     transform: translateY(-2px);
+
 }
+
+
 
 .btn-secondary {
+
     background-color: var(--white);
+
     color: var(--burgundy);
+
 }
-.btn-secondary:hover { 
-    background-color: var(--beige); 
+
+.btn-secondary:hover {
+
+    background-color: var(--beige);
+
     transform: translateY(-2px);
+
 }
+
+
 
 .btn-primary-outline {
+
     border: 2px solid var(--gold);
+
     color: var(--gold);
+
     background: transparent;
-}
-.btn-primary-outline:hover {
-    background-color: var(--gold);
-    color: var(--dark-burgundy);
+
 }
 
-/* =========================================
-   2. ABOUT SECTION
-   ========================================= */
-.about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+.btn-primary-outline:hover {
+
+    background-color: var(--gold);
+
+    color: var(--dark-burgundy);
+
 }
+
+
+
+/* =========================================
+
+   2. ABOUT SECTION
+
+   ========================================= */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 30px;
+
+    margin-top: 40px;
+
+}
+
+
 
 .about-card {
+
     background-color: var(--white);
+
     padding: 35px 30px;
+
     border-radius: 8px;
+
     box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+
     text-align: center;
+
     border-bottom: 4px solid var(--gold);
+
     transition: transform 0.3s ease;
+
 }
+
+
 
 .about-card:hover {
+
     transform: translateY(-5px);
+
 }
 
-.about-card h3 { 
-    color: var(--burgundy); 
+
+
+.about-card h3 {
+
+    color: var(--burgundy);
+
     margin-bottom: 15px;
+
 }
 
+
+
 /* =========================================
+
    3. 20TH ANNIVERSARY CENTERPIECE
+
    ========================================= */
+
 .anniversary-centerpiece {
+
     padding: 90px 20px;
-}
-.big-20 {
-    font-family: var(--font-heading);
-    font-size: 9rem;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: -10px;
-}
-.gold-divider {
-    height: 3px;
-    width: 120px;
-    background-color: var(--gold);
-    margin: 25px auto;
+
 }
 
-/* =========================================
-   4 & 8. TIMELINE (PROGRAM & MILESTONES)
-   ========================================= */
-.program-summary-box {
-    background-color: var(--white);
-    padding: 20px 30px;
-    border-radius: 8px;
-    max-width: 800px;
-    margin: 0 auto 40px auto;
-    border-left: 5px solid var(--gold);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+.big-20 {
+
+    font-family: var(--font-heading);
+
+    font-size: 9rem;
+
+    color: var(--gold);
+
+    line-height: 1;
+
+    margin-bottom: -10px;
+
 }
+
+.gold-divider {
+
+    height: 3px;
+
+    width: 120px;
+
+    background-color: var(--gold);
+
+    margin: 25px auto;
+
+}
+
+
+
+/* =========================================
+
+   4 & 8. TIMELINE (PROGRAM & MILESTONES)
+
+   ========================================= */
+
+.program-summary-box {
+
+    background-color: var(--white);
+
+    padding: 20px 30px;
+
+    border-radius: 8px;
+
+    max-width: 800px;
+
+    margin: 0 auto 40px auto;
+
+    border-left: 5px solid var(--gold);
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+
+}
+
+
 
 .timeline {
+
     max-width: 800px;
+
     margin: 0 auto;
+
     position: relative;
+
     padding-left: 30px;
+
     border-left: 3px solid var(--burgundy);
+
 }
+
+
 
 .timeline-item {
+
     margin-bottom: 35px;
+
     position: relative;
+
 }
+
+
 
 .timeline-item::before {
+
     content: '';
+
     position: absolute;
+
     left: -39px;
+
     top: 0;
+
     width: 15px;
+
     height: 15px;
+
     background-color: var(--gold);
+
     border-radius: 50%;
+
     border: 3px solid var(--white);
+
     box-shadow: 0 0 0 2px var(--burgundy);
+
 }
+
+
 
 .time {
+
     font-weight: 700;
+
     color: var(--burgundy);
+
     margin-bottom: 5px;
+
     font-size: 0.95rem;
+
 }
+
+
 
 .event-details {
+
     background: var(--white);
+
     padding: 20px;
+
     border-radius: 6px;
+
     box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+
 }
+
+
 
 .event-details h4 {
+
     margin-bottom: 5px;
+
     color: var(--dark-text);
+
 }
 
+
+
 /* =========================================
+
    5. BIBLE VERSE SECTION
+
    ========================================= */
+
 .verse-section {
+
     background-image: linear-gradient(rgba(243, 230, 208, 0.92), rgba(243, 230, 208, 0.92)), url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1920&q=80');
+
     background-size: cover;
+
     background-position: center;
+
     background-attachment: fixed;
+
     padding: 110px 20px;
-}
-.verse-section h2 { 
-    font-size: 2.6rem; 
-    color: var(--burgundy); 
-    font-style: italic; 
-    max-width: 900px;
-    margin: 0 auto 15px auto;
-}
-.verse-ref {
-    font-weight: 700;
-    color: var(--dark-burgundy);
-    letter-spacing: 1px;
+
 }
 
+.verse-section h2 {
+
+    font-size: 2.6rem;
+
+    color: var(--burgundy);
+
+    font-style: italic;
+
+    max-width: 900px;
+
+    margin: 0 auto 15px auto;
+
+}
+
+.verse-ref {
+
+    font-weight: 700;
+
+    color: var(--dark-burgundy);
+
+    letter-spacing: 1px;
+
+}
+
+
+
 /* =========================================
+
    6. PHOTO GALLERY & LIGHTBOX
+
    ========================================= */
+
 .gallery-grid {
+
     display: grid;
+
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
     gap: 20px;
+
 }
+
 .gallery-img {
+
     width: 100%;
+
     height: 260px;
+
     object-fit: cover;
+
     border-radius: 8px;
+
     cursor: pointer;
+
     box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+
     transition: transform 0.3s ease, filter 0.3s ease;
+
 }
+
 .gallery-img:hover {
+
     transform: scale(1.03);
+
     filter: brightness(1.05);
+
 }
+
+
 
 /* Lightbox Styles */
+
 .lightbox {
+
     display: none;
+
     position: fixed;
+
     z-index: 2000;
+
     padding-top: 60px;
+
     left: 0; top: 0;
+
     width: 100%; height: 100%;
+
     background-color: rgba(0, 0, 0, 0.9);
+
 }
+
 .lightbox-content {
+
     margin: auto;
+
     display: block;
+
     max-width: 85%;
+
     max-height: 80vh;
+
     border-radius: 4px;
+
     box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+
 }
+
 .close-lightbox {
+
     position: absolute;
+
     top: 25px;
+
     right: 40px;
+
     color: #f1f1f1;
+
     font-size: 45px;
+
     font-weight: bold;
+
     cursor: pointer;
+
     transition: color 0.2s;
+
 }
+
 .close-lightbox:hover {
+
     color: var(--gold);
+
 }
 
+
+
 /* =========================================
+
    7. PASTOR MESSAGE
+
    ========================================= */
+
 .pastor-grid {
+
     display: flex;
+
     align-items: center;
+
     gap: 50px;
+
 }
+
 .pastor-photo img {
+
     width: 100%;
+
     max-width: 350px;
+
     height: 420px;
+
     object-fit: cover;
+
     border-radius: 8px;
+
     box-shadow: -15px 15px 0px var(--gold);
+
 }
+
 .pastor-text { flex: 1; }
-.pastor-text h3 { 
-    color: var(--burgundy); 
+
+.pastor-text h3 {
+
+    color: var(--burgundy);
+
     margin-bottom: 20px;
+
 }
-.pastor-text p { 
-    font-style: italic; 
-    font-size: 1.15rem; 
+
+.pastor-text p {
+
+    font-style: italic;
+
+    font-size: 1.15rem;
+
     line-height: 1.8;
+
 }
 
+
+
 /* =========================================
+
    9 & 10. CTA & CONTACT
+
    ========================================= */
+
 .contact-grid {
+
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 50px;
+
     align-items: center;
+
 }
+
 .contact-info p {
+
     margin-bottom: 12px;
+
     font-size: 1.05rem;
+
 }
+
 .map-placeholder {
+
     width: 100%;
+
     height: 320px;
+
     background-color: #e5d8c3;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     border-radius: 8px;
+
     color: #775533;
+
     font-weight: 700;
+
     text-align: center;
+
     padding: 20px;
+
     border: 2px dashed var(--gold);
+
 }
 
+
+
 /* =========================================
+
    11. FOOTER
+
    ========================================= */
+
 footer {
+
     background-color: var(--dark-burgundy);
+
     color: var(--white);
+
     padding: 50px 20px;
+
 }
+
 footer h2 { color: var(--gold); }
+
 footer h3 { font-size: 1.1rem; opacity: 0.9; margin-bottom: 10px; }
+
 .social-icons {
+
     display: flex;
+
     justify-content: center;
+
     gap: 15px;
+
     margin: 25px 0 15px 0;
+
 }
+
 .social-icons a {
+
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
+
     width: 38px;
+
     height: 38px;
+
     background-color: rgba(255, 255, 255, 0.1);
+
     color: var(--white);
+
     border-radius: 50%;
+
     text-decoration: none;
+
     font-weight: 700;
+
     font-size: 0.85rem;
+
     transition: background-color 0.3s;
+
 }
+
 .social-icons a:hover {
+
     background-color: var(--gold);
+
     color: var(--dark-burgundy);
-}
-.copyright { 
-    margin-top: 20px; 
-    font-size: 0.9rem; 
-    opacity: 0.7; 
+
 }
 
+.copyright {
+
+    margin-top: 20px;
+
+    font-size: 0.9rem;
+
+    opacity: 0.7;
+
+}
+
+
+
 /* =========================================
+
    SCROLL REVEAL ANIMATIONS
+
    ========================================= */
+
 .fade-in {
+
     opacity: 0;
+
     transform: translateY(30px);
+
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.fade-in.appear {
-    opacity: 1;
-    transform: translateY(0);
+
 }
 
-/* =========================================
-   RESPONSIVE DESIGN (MOBILE & TABLET)
-   ========================================= */
-@media (max-width: 900px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    .pastor-grid {
-        flex-direction: column;
-        text-align: center;
-    }
-    .pastor-photo img {
-        box-shadow: 0px 15px 0px var(--gold);
-        max-width: 300px;
-        height: 350px;
-    }
+.fade-in.appear {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
 }
+
+
+
+/* =========================================
+
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .pastor-grid {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    .pastor-photo img {
+
+        box-shadow: 0px 15px 0px var(--gold);
+
+        max-width: 300px;
+
+        height: 350px;
+
+    }
+
+}
+
+
 
 @media (max-width: 768px) {
+
     .nav-links {
+
         display: none;
+
         flex-direction: column;
+
         width: 100%;
+
         background-color: var(--white);
+
         position: absolute;
+
         top: 70px;
+
         left: 0;
+
         padding: 20px 0;
+
         text-align: center;
+
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
     }
+
     .nav-links.active { display: flex; }
+
     .hamburger { display: flex; }
-    
+
+   
+
     .hero h1 { font-size: 2.6rem; }
+
     .countdown-container { gap: 8px; }
+
     .countdown-box { padding: 8px 10px; min-width: 70px; }
+
     .countdown-box span { font-size: 1.4rem; }
+
     .big-20 { font-size: 7rem; }
-}
+
+} 
+
