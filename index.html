@@ -51,7 +51,7 @@
             <h1 class="fade-in">20th Anniversary Celebration</h1>
             <p class="hero-verse fade-in">"Great is His faithfulness; His mercies begin afresh each morning." — [EDIT THIS: Lamentations 3:23]</p>
             
-            <div class="countdown-container fade-in">
+            <div class="countdown-container fade-in" data-target-date="2026-11-15T00:00:00">
                 <div class="countdown-box">
                     <span id="days">00</span>
                     <p>Days</p>
@@ -74,6 +74,12 @@
                 <a href="#program" class="btn btn-primary">View Celebration Details</a>
                 <a href="#contact" class="btn btn-secondary">Join Us</a>
             </div>
+
+            <!-- Naalis na ang fade-in class dito para siguradong lilitaw agad sa UI -->
+            <div class="target-date-note" style="margin-top: 30px; font-size: 14px; padding: 12px 20px; background-color: #4a151c; border-radius: 4px; display: inline-block; color: #fdf2e9; text-align: center;">
+                <p style="margin: 0; opacity: 0.8;">[EDIT THIS] Anniversary date: November 15, 2026 — update <code style="background-color: rgba(0,0,0,0.3); padding: 3px 6px; border-radius: 3px; font-family: monospace;">data-target-date</code> on the countdown element in index.html</p>
+            </div>
+
         </div>
     </section>
 
